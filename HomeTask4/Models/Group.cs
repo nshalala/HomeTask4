@@ -3,9 +3,23 @@
 internal class Group
 {
     public string No { get; set; }
-    public int Limit { get; set; }
+    public int _limit;
+    public int Limit {
+        get 
+        { 
+            return _limit; 
+        }
+        set
+        {
+            if (value < 0)
+            {
+                Console.WriteLine("Enter a valid number for limit, please!");
+                return;
+            }
+            _limit = value;
+        } 
+    }
     private Student[] Students { get; set; } = { };
-
 
     public Group(int limit)
     {
